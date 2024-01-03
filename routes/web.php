@@ -1,9 +1,13 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+
+use Laravel\Socialite\Facades\Socialite;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +68,28 @@ Route::get('posts', function(){
     $posts = Post::all();
 
     return view('post.post', compact('posts'));
+});
+
+
+
+ 
+Route::get('/auth/redirect', function () {
+    return Socialite::driver('github')->redirect();
+})->name('github.login');
+ 
+Route::get('/auth/callback', function () {
+    $user = Socialite::driver('github')->user();
+
+    $user = User::firstOrCreate([
+        'email' => $user->email
+    ],[
+        'name' => $user->name,
+        'password' => bcrypt(Str::random(24))
+    ]);
+
+    Auth::login($user, true);
+
+    return redirect('/dashboard');
 });
 
 
