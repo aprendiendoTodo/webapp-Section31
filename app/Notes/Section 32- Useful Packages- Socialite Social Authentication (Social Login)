@@ -2,12 +2,12 @@ Section 32: Useful Packages: Socialite Social Authentication (Social Login)
 
 159 Introduction of Laravel Socialite
 
-
+n addition to typical, form based authentication, Laravel also provides a simple, convenient way to authenticate with OAuth providers using Laravel Socialite. Socialite currently supports authentication via Facebook, Twitter, LinkedIn, Google, GitHub, GitLab, Bitbucket, and Slack.
 
 
 160 Install Socialite and setup in to project 
 
-
+    
 
 161 Implement Socialite
 
