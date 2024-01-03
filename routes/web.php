@@ -57,8 +57,13 @@ Route::get('create-role', function(){
     }else {
         return 'user dont have permission';
     }
+});
 
 
+Route::get('posts', function(){
+    $posts = Post::all();
+
+    return view('post.post', compact('posts'));
 });
 
 
