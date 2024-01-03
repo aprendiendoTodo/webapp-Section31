@@ -21,6 +21,23 @@ Section 31: Useful Packages: Spatie Laravel Permission (Role and Permission)
 
 157 Create Roles and Permissionand assign them to user
 
+    Two ways, Methods and commands
+
+> php artisan permission:create-role editor
+
+> php artisan permission:create-permission "delete article"
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Adding permissions to a user
+$user->givePermissionTo('edit articles');
+
+// Adding permissions via a role
+$user->assignRole('writer');
+
+$role->givePermissionTo('edit articles');
+
+
+Ok
 
 
 158 How to check role and Permission at the blade 

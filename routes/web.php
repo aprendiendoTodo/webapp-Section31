@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +29,37 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('create-role', function(){
+    // $role = Role::create(['name' => 'publisher']);
+
+    // $permission = Permission::create(['name' => 'edit articles']);
+
+    // return $permission;
+
+    $user = auth()->user();
+
+    // $user->assignRole('writer');
+    // $user->givePermissionTo('edit articles');
+
+    // $permissionNames = $user->getPermissionNames();
+
+    // return $user->getPermissionNames();
+    // return $user->permissions;
+    // return $user->roles;
+
+    // return $user->can('edit articles');
+
+    // $checkPermission =  $user->can('edit articles');
+
+    if ( $user->can('delete articles')) {
+        return 'user have permission';
+    }else {
+        return 'user dont have permission';
+    }
+
+
+});
+
 
 require __DIR__.'/auth.php';
