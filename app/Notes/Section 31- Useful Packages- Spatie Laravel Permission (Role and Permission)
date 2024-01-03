@@ -1,5 +1,28 @@
-    1 Create the project
+Section 31: Useful Packages: Spatie Laravel Permission (Role and Permission)
 
-> composer create-project laravel/laravel webapp-Section31
+155 Introduction of Laravel Permission
 
-> php artisan serve
+    This package allows you to manage user permissions and roles in a database.
+
+156 Installation and Setup of Laravel Permission
+
+    https://spatie.be/docs/laravel-permission/v6/introduction
+
+> composer require spatie/laravel-permission
+
+> php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+
+>  php artisan optimize:clear
+
+> php artisan migrate
+
+    Ok
+    
+
+157 Create Roles and Permissionand assign them to user
+
+
+
+158 How to check role and Permission at the blade 
+
+

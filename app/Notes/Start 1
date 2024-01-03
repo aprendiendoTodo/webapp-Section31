@@ -1,0 +1,16 @@
+    1 Create the project
+
+> composer create-project laravel/laravel webapp-Section31
+> php artisan serve
+
+    2 Install Breeze Starter Kit
+
+> composer require laravel/breeze --dev
+
+> php artisan breeze:install
+
+php artisan migrate
+npm install
+npm run dev
+
+npm run build
